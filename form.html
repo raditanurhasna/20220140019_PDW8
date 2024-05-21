@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Bunga - Toko Bunga</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Clou Florist ଓ༉‧.</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pengenalan.html">Our Product</a></li>
+                <li><a href="form.html">Order Here</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="form-section">
+        <div class="form-container">
+            <h2>Order Here!</h2>
+            <form id="form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="nama">Name</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telepon">Phone</label>
+                    <input type="tel" id="telepon" name="telepon" required>
+                </div>
+                <div class="form-group">
+                    <label for="pesan">Detail Order</label>
+                    <textarea id="pesan" name="pesan" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Shipping Options</label><br>
+                    <input type="radio" id="pickup" name="pengiriman" value="Pick up in Store" checked>
+                    <label for="pickup">Pick up in Store</label><br>
+                    <input type="radio" id="delivery" name="pengiriman" value="Delivery to Home">
+                    <label for="delivery">Delivery to Home</label><br>
+                </div>
+                <button type="submit">Order!</button>
+            </form>            
+        </div>
+    </section>
+    <div id="result-container"></div>
+    <footer>
+        <p>&copy; 2024 CLOURIS. All rights reserved.</p>
+    </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const nama = document.getElementById('nama').value;
+        const email = document.getElementById('email').value;
+        const telepon = document.getElementById('telepon').value;
+        const pesan = document.getElementById('pesan').value;
+        const pengiriman = document.querySelector('input[name="pengiriman"]:checked').value;
+
+        const resultContainer = document.getElementById('result-container');
+        resultContainer.innerHTML = `
+            <h2>Terima kasih!</h2>
+            <p>Nama: ${nama}</p>
+            <p>Email: ${email}</p>
+            <p>Nomor Telepon: ${telepon}</p>
+            <p>Pesan: ${pesan}</p>
+            <p>Pilihan Pengiriman: ${pengiriman}</p>
+        `;
+    });
+});
+    </script>
+</body>
+</html>
